@@ -1,0 +1,16 @@
+Refactoring query:
+
+SELECT * FROM link l
+LEFT JOIN data d ON l.data_id = d.id
+LEFT JOIN info i ON l.info_id = i.id
+
+
+Refactoring schema:
+
+ALTER TABLE `link`
+ADD CONSTRAINT FK_link_data
+FOREIGN KEY (data_id) REFERENCES data (id);
+
+ALTER TABLE `link`
+ADD CONSTRAINT FK_link_info
+FOREIGN KEY (info_id) REFERENCES info (id);
